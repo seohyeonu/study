@@ -1,14 +1,20 @@
 #include <stdio.h>
-#include "stdlib.h"
+int main(){
+    char arr[100] = {'\0', };
+    int count;
 
-int main() {
-    char arr[100] = {'\0'};
-    int inx=0;
     gets(arr);
 
-    for(int i='a'; i<='z'; i++){
-        if(arr[inx] == i) printf("%d", i);
-        else printf("-1");
+    for(int j='a'; j<='z' ;j++){
+        count = 0;
+        for(int i=0; arr[i] != '\0'; i++){
+            if(arr[i] == j){
+                printf("%d ", i);
+                count++;
+                break;
+            }
+        }
+        if(count == 0) printf("-1 ");
     }
     return 0;
 }

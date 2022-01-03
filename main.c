@@ -2,20 +2,22 @@
 #include "string.h"
 
 int main(){
-    char arr[1000000]={'\0'};
-    int alphabet[26]={0,};
+    char arr[1000000]={'\0',};
+    int len,count=0,num=0,sp=0;
 
-    puts(arr);
+    gets(arr);
+    len = strlen(arr);
 
-    for(int i=0; i<strlen(arr); i++){
-        if(arr[i]>= 'A' && arr[i]<='Z') arr[i] -= 'A';
-        else if(arr[i]>= 'a' && arr[i]<='z') arr[i] -= 'a';
+    if(arr[0] != ' ') sp++;
+    if(arr[len-1] == ' ') sp--;
+    for(int i=0; i<len; i++){
+        if(arr[i] != ' ') num++;
     }
-    for(int i=0; i<strlen(arr); i++){
-        alphabet[arr[i]]++;
-    }
-    for(int i=0; i<strlen(arr); i++){
-        
-    }
+
+    count = len - num;
+    if(sp != 0) printf("%d", count+sp);
+    else printf("%d", count);
+
+
     return 0;
 }
